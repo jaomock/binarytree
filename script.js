@@ -130,9 +130,9 @@ preOrder(callback = (e) => values.push(e), current = this.root, values = []){
 inOrder(callback = (e) => values.push(e), current = this.root, values = []){
     if(current === null) return
     if(current != null){
-        if(current.left) this.preOrder(callback, current.left, values);
+        if(current.left) this.inOrder(callback, current.left, values);
         callback(current.data)
-        if(current.right) this.preOrder(callback, current.right, values)
+        if(current.right) this.inOrder(callback, current.right, values)
     }
     console.log(values)
 }
@@ -140,8 +140,8 @@ inOrder(callback = (e) => values.push(e), current = this.root, values = []){
 postOrder(callback = (e) => values.push(e), current = this.root, values = []){
     if(current === null) return
     if(current != null){
-        if(current.left) this.preOrder(callback, current.left, values);
-        if(current.right) this.preOrder(callback, current.right, values)
+        if(current.left) this.postOrder(callback, current.left, values);
+        if(current.right) this.postOrder(callback, current.right, values)
         callback(current.data)
     }
 
